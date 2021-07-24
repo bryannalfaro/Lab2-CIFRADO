@@ -1,3 +1,4 @@
+import base64;
 '''def binary(text):
     binario = ''
     for letra in text:
@@ -17,5 +18,15 @@ def text_to_bits(text):
 
 def text_from_bits(bits):
     return int(bits,2).to_bytes((int(bits,2).bit_length() + 7) // 8, 'big').decode('utf-8')
+
+#Using library base64
+def text_b64(text):
+    t = base64.b64encode(bytes(text_to_bits(text),'utf-8'))
+    return t
+
+def back_text_b64(b64):
+    t = base64.b64decode(b64)
+    t= text_from_bits(t)
+    return t
 
 
