@@ -1,4 +1,5 @@
 import converters
+import xor
 '''
 print(converters.binary('hello'))
 prueba = converters.binary('hello')
@@ -15,3 +16,6 @@ a = converters.encryptBase64(t2)
 print('\nBase 64:\n',a)
 
 print('\nDecodificacion Base 64:\n',converters.decryptBase64(a))
+
+print('')
+xor.properties(converters.text_to_bits('Man'))
