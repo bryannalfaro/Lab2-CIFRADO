@@ -18,4 +18,4 @@ print('\nBase 64:\n',a)
 print('\nDecodificacion Base 64:\n',converters.decryptBase64(a))
 
 print('')
-xor.properties(converters.text_to_bits('Man'))
+xor.properties(converters.text_to_bits('H'))

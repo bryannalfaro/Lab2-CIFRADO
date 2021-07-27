@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import itertools as it
 
 #np.random.seed(25)
 
@@ -9,28 +10,61 @@ def xor(a, b):
         result += str(int(a[i]) ^ int(b[i]))
     return result
 
+# find repetitions of substring in string
+def find_substring(string, substring):
+    if(substring!=1):
+        return it.product(string,repeat=substring)
+
 def p_occurancy(bits, type=1): # 1=monograma, 2=bigrama, 3=trigrama, 4=tetragrama, ...
     if type == 1:
-        x, bins = np.histogram(bits, bins=np.arange(0, len(bits) + 1))
-        plt.hist(x, density=True, bins=bins)
+        x, bins = np.histogram([int(x) for x in bits], bins=np.arange(0, 3))
+        print('0: ', x[0]/len(bits) )
+        print('1: ', x[1]/len(bits) )
+        plt.hist([int(x) for x in bits], density=True, bins=[0,1,2])
         plt.title('Probabilidade de bits monograma')
-        plt.ylabel('Probabilid')
+        plt.ylabel('Probabilidad')
+        plt.xlabel('Bits')
+        plt.show()
+    elif type == 2:
+        bits = list(find_substring(bits,2))
+        lista = []
+        lista.append(bits.count(('0','0')))
+        lista.append(bits.count(('0','1')))
+        lista.append(bits.count(('1','0')))
+        lista.append(bits.count(('1','1')))
+        plt.bar(["00","01","10","11"],[y/len(bits) for y in lista])
+        plt.title('Probabilidade de bits bigrama')
+        plt.ylabel('Probabilidad')
+        plt.xlabel('Bits')
+        plt.show()
+    elif type == 3:
+        bits = list(find_substring(bits,3))
+        lista = []
+        lista.append(bits.count(('0','0','0')))
+        lista.append(bits.count(('0','1','1')))
+        lista.append(bits.count(('0','1','0')))
+        lista.append(bits.count(('0','0','1')))
+        lista.append(bits.count(('1','0','0')))
+        lista.append(bits.count(('1','1','0')))
+        lista.append(bits.count(('1','0','1')))
+        lista.append(bits.count(('1','1','1')))
+
+        plt.bar(["000","011","010","001","100","110","101","111"],[y/len(bits) for y in lista])
+        plt.title('Probabilidade de bits trigrama')
+        plt.ylabel('Probabilidad')
         plt.xlabel('Bits')
         plt.show()
 
 def properties(bits):
     print(bits)
-    p_occurancy(bits, 1)
-    
-# find repetitions of substring in string
-def find_substring(string, substring):
-    ocurrences = 0
-    index = -1
-    while True:
-        index = string.find(substring, index + 1)
-        if index == -1:
-            break
-        ocurrences += 1
-    return ocurrences
+    y = lengthBits(len(bits))
+    xor(bits,y) #XOR entre random y teorico
+    p_occurancy(bits, 3)
 
-print(find_substring('1111', '11'))
+
+
+def lengthBits(lenBits):
+
+    return ''.join(str(np.random.randint(0, 2)) for _ in range(lenBits))
+
+#print(find_substring('1111', '11'))
