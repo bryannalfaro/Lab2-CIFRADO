@@ -40,7 +40,6 @@ print('\nBase 64:\n',a)
 print('\nDecodificacion Base 64:\n',converters.decryptBase64(a))
 
 print('')
-print('')
 
 #Distribucion de solo la palabra
 xor.properties(converters.text_to_bits('Homero Simpson'),1)
