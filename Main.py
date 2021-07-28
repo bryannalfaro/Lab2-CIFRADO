@@ -41,9 +41,13 @@ print('\nDecodificacion Base 64:\n',converters.decryptBase64(a))
 
 print('')
 print('')
+
+#Distribucion de solo la palabra
 xor.properties(converters.text_to_bits('Homero Simpson'),1)
 xor.properties(converters.text_to_bits('Homero Simpson'),2)
 xor.properties(converters.text_to_bits('Homero Simmpson'),3)
+
+#Haciendo XOR con bits random
 xor.propertiesX(converters.text_to_bits('Homero Simpson'),1)
 xor.propertiesX(converters.text_to_bits('Homero Simpson'),2)
 xor.propertiesX(converters.text_to_bits('Homero Simpson'),3)
