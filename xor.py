@@ -55,12 +55,13 @@ def p_occurancy(bits, type=1): # 1=monograma, 2=bigrama, 3=trigrama, 4=tetragram
         plt.xlabel('Bits')
         plt.show()
 
-def properties(bits):
-    print(bits)
+def propertiesX(bits,type):
     y = lengthBits(len(bits))
     xor(bits,y) #XOR entre random y teorico
-    p_occurancy(bits, 3)
+    p_occurancy(bits, type)
 
+def properties(bits,type):
+    p_occurancy(bits, type)
 
 
 def lengthBits(lenBits):
