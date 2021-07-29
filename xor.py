@@ -1,3 +1,11 @@
+'''
+Universidad del valle de Guatemala
+Cifrado de la informacion - laboratorio 2
+Integrantes:
+Bryann Alfaro
+Diego Arredondo
+Julio Herrera
+'''
 import matplotlib.pyplot as plt
 import numpy as np
 import itertools as it

@@ -1,10 +1,14 @@
+'''
+Universidad del valle de Guatemala
+Cifrado de la informacion - laboratorio 2
+Integrantes:
+Bryann Alfaro
+Diego Arredondo
+Julio Herrera
+'''
 import converters
 import xor
-'''
-print(converters.binary('hello'))
-prueba = converters.binary('hello')
-print(converters.binaryToText(prueba))'
-'''
+
 print('EJEMPLO 1 - BINARIO\n')
 t = 'HOLA'
 b =converters.text_to_bits(t)

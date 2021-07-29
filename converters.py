@@ -1,16 +1,12 @@
 import base64;
-'''def binary(text):
-    binario = ''
-    for letra in text:
-        byte = (letra.encode('ascii'))
-
-        binario += bin(int.from_bytes(byte,'big'))[2:]
-    return binario.zfill(8 * ((len(binario) + 7) // 8))
-
-def binaryToText(bits):
-    n = int(bits, 2)
-    return n.to_bytes((n.bit_length() + 7) // 8, 'big').decode('utf-8', 'surrogatepass') or '\0'
-    '''
+'''
+Universidad del valle de Guatemala
+Cifrado de la informacion - laboratorio 2
+Integrantes:
+Bryann Alfaro
+Diego Arredondo
+Julio Herrera
+'''
 #GET FROM > https://www.it-swarm-es.com/es/python/convertir-binario-ascii-y-viceversa/940070781/
 def text_to_bits(text):
     bits = bin(int.from_bytes(text.encode('utf-8'), 'big'))[2:]
